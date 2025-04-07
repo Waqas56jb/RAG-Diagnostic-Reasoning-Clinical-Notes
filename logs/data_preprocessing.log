@@ -1,0 +1,4 @@
+2025-04-07 05:25:11,003 - INFO - Starting knowledge base initialization
+2025-04-07 05:25:12,370 - INFO - Split into 31 chunks
+2025-04-07 05:25:33,322 - INFO - Saved FAISS index to C:\Users\HP\Documents\Waqas Work\Rag-Diagnostic-Reasoning-Clinical-ChatBot\MLOps-Complete-ML-Pipeline\models\faiss_index
+2025-04-07 05:25:33,323 - INFO - Knowledge base ready in 22.10s

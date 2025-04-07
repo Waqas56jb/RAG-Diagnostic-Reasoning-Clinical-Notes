@@ -1,0 +1,13 @@
+2025-04-07 04:59:10,491 - INFO - Found 0 flowchart files.
+2025-04-07 04:59:10,491 - INFO - Found 0 case categories.
+2025-04-07 04:59:10,492 - ERROR - No documents loaded. Check your folders.
+2025-04-07 04:59:10,492 - ERROR - Pipeline failed: No documents found in Diagnosis_flowchart or Finished directories.
+2025-04-07 05:25:11,230 - INFO - Starting clinical data ingestion
+2025-04-07 05:25:11,487 - INFO - Found 5 flowchart files
+2025-04-07 05:25:11,496 - INFO - Loaded flowchart: Acute Coronary Syndrome.json
+2025-04-07 05:25:11,506 - INFO - Loaded flowchart: Adrenal Insufficiency.json
+2025-04-07 05:25:11,515 - INFO - Loaded flowchart: Alzheimer.json
+2025-04-07 05:25:11,695 - INFO - Loaded flowchart: Aortic Dissection.json
+2025-04-07 05:25:12,188 - INFO - Loaded flowchart: Asthma.json
+2025-04-07 05:25:12,210 - INFO - Ingested 5 docs in 0.74s
+2025-04-07 05:25:12,223 - INFO - Saved ingestion output to C:\Users\HP\Documents\Waqas Work\Rag-Diagnostic-Reasoning-Clinical-ChatBot\MLOps-Complete-ML-Pipeline\data_ingestion_output.json

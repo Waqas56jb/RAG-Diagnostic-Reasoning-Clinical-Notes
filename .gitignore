@@ -1,18 +1,7 @@
 # Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
+ 
+ 
 venv/
 .dvc/
-# Data and models (tracked by DVC)
-data/
-models/
-dvclive/
-logs/
-# Environment
-# Misc
-.DS_Store
-*.log
+ 

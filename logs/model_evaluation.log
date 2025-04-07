@@ -1,0 +1,254 @@
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+WARNING:__main__:Lottie load failed: [Errno 2] No such file or directory: 'C:\\Users\\HP\\Documents\\Waqas Work\\Rag-Diagnostic-Reasoning-Clinical-ChatBot\\MLOps-Complete-ML-Pipeline\\assets\\clinic-animation.json'
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 6.94s
+INFO:data_preprocessing:Starting knowledge base initialization
+INFO:data_ingestion:Starting clinical data ingestion
+INFO:data_ingestion:Found 5 flowchart files
+INFO:data_ingestion:Loaded flowchart: Acute Coronary Syndrome.json
+INFO:data_ingestion:Loaded flowchart: Adrenal Insufficiency.json
+INFO:data_ingestion:Loaded flowchart: Alzheimer.json
+INFO:data_ingestion:Loaded flowchart: Aortic Dissection.json
+INFO:data_ingestion:Loaded flowchart: Asthma.json
+INFO:data_ingestion:Ingested 5 docs in 0.74s
+INFO:data_ingestion:Saved ingestion output to C:\Users\HP\Documents\Waqas Work\Rag-Diagnostic-Reasoning-Clinical-ChatBot\MLOps-Complete-ML-Pipeline\data_ingestion_output.json
+INFO:data_preprocessing:Split into 31 chunks
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:data_preprocessing:Saved FAISS index to C:\Users\HP\Documents\Waqas Work\Rag-Diagnostic-Reasoning-Clinical-ChatBot\MLOps-Complete-ML-Pipeline\models\faiss_index
+INFO:data_preprocessing:Knowledge base ready in 22.10s
+INFO:__main__:FAISS index loaded
+WARNING:__main__:Lottie load failed: [Errno 2] No such file or directory: 'C:\\Users\\HP\\Documents\\Waqas Work\\Rag-Diagnostic-Reasoning-Clinical-ChatBot\\MLOps-Complete-ML-Pipeline\\assets\\clinic-animation.json'
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 3.11s
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR:__main__:evaluate_rag_response() takes 2 positional arguments but 3 were given
+2025-04-07 05:28:07,286 - WARNING - Lottie load failed: [Errno 2] No such file or directory: 'C:\\Users\\HP\\Documents\\Waqas Work\\Rag-Diagnostic-Reasoning-Clinical-ChatBot\\MLOps-Complete-ML-Pipeline\\assets\\clinic-animation.json'
+2025-04-07 05:28:07,286 - INFO - Initializing LLM and embeddings
+2025-04-07 05:28:07,938 - INFO - Load pretrained SentenceTransformer: distilbert-base-uncased
+2025-04-07 05:28:09,525 - WARNING - No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+2025-04-07 05:28:13,174 - INFO - LLM ready in 5.89s
+WARNING:__main__:Lottie load failed: [Errno 2] No such file or directory: 'C:\\Users\\HP\\Documents\\Waqas Work\\Rag-Diagnostic-Reasoning-Clinical-ChatBot\\MLOps-Complete-ML-Pipeline\\assets\\clinic-animation.json'
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 4.58s
+WARNING:__main__:Lottie load failed: [Errno 2] No such file or directory: 'C:\\Users\\HP\\Documents\\Waqas Work\\Rag-Diagnostic-Reasoning-Clinical-ChatBot\\MLOps-Complete-ML-Pipeline\\assets\\clinic-animation.json'
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 5.98s
+WARNING:__main__:Lottie load failed: [Errno 2] No such file or directory: 'C:\\Users\\HP\\Documents\\Waqas Work\\Rag-Diagnostic-Reasoning-Clinical-ChatBot\\MLOps-Complete-ML-Pipeline\\assets\\clinic-animation.json'
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 4.98s
+WARNING:__main__:Lottie load failed: [Errno 2] No such file or directory: 'C:\\Users\\HP\\Documents\\Waqas Work\\Rag-Diagnostic-Reasoning-Clinical-ChatBot\\MLOps-Complete-ML-Pipeline\\assets\\clinic-animation.json'
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 2.91s
+WARNING:__main__:Lottie load failed: [Errno 2] No such file or directory: 'C:\\Users\\HP\\Documents\\Waqas Work\\Rag-Diagnostic-Reasoning-Clinical-ChatBot\\MLOps-Complete-ML-Pipeline\\assets\\clinic-animation.json'
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 5.88s
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:__main__:FAISS index loaded
+WARNING:__main__:Lottie load failed: [Errno 2] No such file or directory: 'C:\\Users\\HP\\Documents\\Waqas Work\\Rag-Diagnostic-Reasoning-Clinical-ChatBot\\MLOps-Complete-ML-Pipeline\\assets\\clinic-animation.json'
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 4.30s
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR:__main__:evaluate_rag_response() takes 2 positional arguments but 3 were given
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 5.80s
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:__main__:FAISS index loaded
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 7.17s
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 4.06s
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:__main__:FAISS index loaded
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 15.42s
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 4.17s
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:__main__:FAISS index loaded
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 2.45s
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 3.47s
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:__main__:FAISS index loaded
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 2.30s
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 6.88s
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:__main__:FAISS index loaded
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 4.05s
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:__main__:FAISS index loaded
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 3.31s
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:__main__:FAISS index loaded
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 2.46s
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 4.88s
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:__main__:FAISS index loaded
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 2.51s
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 5.16s
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:__main__:FAISS index loaded
+WARNING:__main__:Lottie load failed: [Errno 2] No such file or directory: 'C:\\Users\\HP\\Documents\\Waqas Work\\Rag-Diagnostic-Reasoning-Clinical-ChatBot\\MLOps-Complete-ML-Pipeline\\assets\\medical-animation.json'
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 2.46s
+WARNING:__main__:Lottie load failed: [Errno 2] No such file or directory: 'C:\\Users\\HP\\Documents\\Waqas Work\\Rag-Diagnostic-Reasoning-Clinical-ChatBot\\MLOps-Complete-ML-Pipeline\\assets\\medical-animation.json'
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR:__main__:Error in chat processing: Expanders may not be nested inside other expanders.
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 4.12s
+WARNING:__main__:Lottie load failed: [Errno 2] No such file or directory: 'C:\\Users\\HP\\Documents\\Waqas Work\\Rag-Diagnostic-Reasoning-Clinical-ChatBot\\MLOps-Complete-ML-Pipeline\\assets\\medical-animation.json'
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR:__main__:Error in chat processing: Expanders may not be nested inside other expanders.
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 3.76s
+WARNING:__main__:Lottie load failed: [Errno 2] No such file or directory: 'C:\\Users\\HP\\Documents\\Waqas Work\\Rag-Diagnostic-Reasoning-Clinical-ChatBot\\MLOps-Complete-ML-Pipeline\\assets\\medical-animation.json'
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR:__main__:Error in chat processing: Expanders may not be nested inside other expanders.
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 3.05s
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:__main__:FAISS index loaded
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 3.18s
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 3.77s
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:__main__:FAISS index loaded
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 3.01s
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 3.72s
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:__main__:FAISS index loaded
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 2.89s
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
