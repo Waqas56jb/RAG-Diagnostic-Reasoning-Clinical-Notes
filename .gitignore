@@ -12,10 +12,7 @@ data/
 models/
 dvclive/
 logs/
-
 # Environment
-.env
-
 # Misc
 .DS_Store
 *.log
