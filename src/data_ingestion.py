@@ -1,105 +1,105 @@
-import os
+# src/data_ingestion.py
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+
 import json
-import glob
 import logging
-from pathlib import Path
-from langchain.docstore.document import Document
 import time
+from pathlib import Path
 
-# Set up logging
-os.makedirs("logs", exist_ok=True)
-logging.basicConfig(
-    filename='logs/data_ingestion.log',
-    level=logging.INFO,
-    filemode='w',
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
+import streamlit as st
+from langchain.docstore.document import Document
+from utils.load_params import load_params
+
+# Load params
+params = load_params()
+max_files = params["data_ingestion"]["max_files"]
+
+# Setup directories
+BASE_DIR = Path(__file__).resolve().parent.parent
+for folder in ["data/raw", "data/interim", "data/processed", "Diagnosis_flowchart", "Finished", "models/faiss_index", "logs", "reports"]:
+    (BASE_DIR / folder).mkdir(parents=True, exist_ok=True)
+
+# Logging setup
+log_dir = BASE_DIR / "logs"
+log_dir.mkdir(exist_ok=True)
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+fh = logging.FileHandler(log_dir / "data_ingestion.log")
+fh.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
+ch = logging.StreamHandler()
+ch.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
+logger.handlers = [fh, ch]
 
+@st.cache_data(show_spinner=False)
 def load_clinical_data():
-    docs = []
+    logger.info("Starting clinical data ingestion")
     start_time = time.time()
+    docs = []
 
-    # Set project root as current directory
-    project_root = os.path.abspath(os.path.dirname(__file__))
-    flowchart_path = os.path.join(project_root, "Diagnosis_flowchart")
-    finished_path = os.path.join(project_root, "Finished")
+    # Flowchart files
+    flow_dir = BASE_DIR / "Diagnosis_flowchart"
+    if flow_dir.exists():
+        files = list(flow_dir.glob("*.json"))[:max_files]
+        logger.info(f"Found {len(files)} flowchart files")
+        for f in files:
+            try:
+                data = json.loads(f.read_text(encoding="utf-8"))
+                content = (
+                    f"DIAGNOSTIC FLOWCHART: {f.stem}\n"
+                    f"Diagnostic Path: {data.get('diagnostic','No diagnostic path')}\n"
+                    f"Key Criteria: {data.get('knowledge','No criteria')}"
+                )
+                docs.append(Document(page_content=content,
+                                     metadata={"source":str(f),"type":"flowchart"}))
+                logger.info(f"Loaded flowchart: {f.name}")
+            except Exception as e:
+                logger.warning(f"Failed to load {f.name}: {e}")
+    else:
+        logger.warning(f"Directory not found: {flow_dir}. Creating it.")
+        flow_dir.mkdir(parents=True, exist_ok=True)
 
-    # Load Diagnostic Flowcharts
-    flowchart_files = glob.glob(os.path.join(flowchart_path, "*.json"))
-    logger.info(f"Found {len(flowchart_files)} flowchart files.")
-
-    for fpath in flowchart_files:
-        try:
-            with open(fpath, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                content = f"""
-DIAGNOSTIC FLOWCHART: {Path(fpath).stem}
-Diagnostic Path: {data.get('diagnostic', 'No diagnostic path')}
-Key Criteria: {data.get('knowledge', 'No criteria')}
-"""
-                docs.append(Document(
-                    page_content=content.strip(),
-                    metadata={"source": fpath, "type": "flowchart"}
-                ))
-        except Exception as e:
-            logger.warning(f"Error loading flowchart {fpath}: {str(e)}")
-
-    # Load Patient Cases
-    case_dirs = glob.glob(os.path.join(finished_path, "*"))
-    logger.info(f"Found {len(case_dirs)} case categories.")
-
-    for category_dir in case_dirs:
-        if os.path.isdir(category_dir):
-            case_files = glob.glob(os.path.join(category_dir, "*.json"))
-            logger.info(f"Found {len(case_files)} cases in category '{Path(category_dir).name}'.")
-
-            for case_file in case_files:
+    # Patient case files
+    remaining = max_files - len(docs)
+    if remaining > 0:
+        finished_dir = BASE_DIR / "Finished"
+        if finished_dir.exists():
+            all_cases = []
+            for cat in finished_dir.iterdir():
+                if cat.is_dir():
+                    all_cases.extend(cat.glob("*.json"))
+            for case in all_cases[:remaining]:
                 try:
-                    with open(case_file, 'r', encoding='utf-8') as f:
-                        case_data = json.load(f)
-                        notes = "\n".join(f"{k}: {v}" for k, v in case_data.items() if k.startswith("input"))
-                        content = f"""
-PATIENT CASE: {Path(case_file).stem}
-Category: {Path(category_dir).name}
-Notes:
-{notes}
-""".strip()
-
-                        docs.append(Document(
-                            page_content=content,
-                            metadata={"source": case_file, "type": "patient_case"}
-                        ))
+                    data = json.loads(case.read_text(encoding="utf-8"))
+                    notes = "\n".join(f"{k}: {v}" for k,v in data.items() if k.startswith("input"))
+                    content = (
+                        f"PATIENT CASE: {case.stem}\n"
+                        f"Category: {case.parent.name}\n"
+                        f"Notes: {notes}"
+                    )
+                    docs.append(Document(page_content=content,
+                                         metadata={"source":str(case),"type":"patient_case"}))
+                    logger.info(f"Loaded patient case: {case.name}")
                 except Exception as e:
-                    logger.warning(f"Error loading case {case_file}: {str(e)}")
+                    logger.warning(f"Failed to load {case.name}: {e}")
+        else:
+            logger.warning(f"Directory not found: {finished_dir}. Creating it.")
+            finished_dir.mkdir(parents=True, exist_ok=True)
 
     if not docs:
-        logger.error("No documents loaded. Check your folders.")
-        raise ValueError("No documents found in Diagnosis_flowchart or Finished directories.")
+        logger.error("No clinical data found")
+        st.error("No clinical data found in Diagnosis_flowchart or Finished.")
+        return []
 
-    logger.info(f"Successfully loaded {len(docs)} documents in {time.time() - start_time:.2f} seconds.")
+    duration = time.time() - start_time
+    logger.info(f"Ingested {len(docs)} docs in {duration:.2f}s")
+
+    # Save for DVC
+    out_path = BASE_DIR / "data" / "interim" / "splits.json"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump([{"content":d.page_content,"metadata":d.metadata} for d in docs], f, indent=4)
+    logger.info(f"Saved ingestion output to {out_path}")
+
     return docs
-
-def save_to_raw(docs):
-    raw_dir = os.path.join(os.path.abspath(os.path.dirname(__file__)), "data", "raw")
-    os.makedirs(raw_dir, exist_ok=True)
-    output_path = os.path.join(raw_dir, "clinical_data.json")
-
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(
-            [{"content": doc.page_content, "metadata": doc.metadata} for doc in docs],
-            f,
-            indent=4,
-            ensure_ascii=False
-        )
-
-    logger.info(f"Saved {len(docs)} documents to {output_path}")
-    print(f"[INFO] Data saved to {output_path}")
-
-if __name__ == "__main__":
-    try:
-        documents = load_clinical_data()
-        save_to_raw(documents)
-    except Exception as e:
-        logger.error(f"Pipeline failed: {str(e)}")
-        print(f"[ERROR] {e}")

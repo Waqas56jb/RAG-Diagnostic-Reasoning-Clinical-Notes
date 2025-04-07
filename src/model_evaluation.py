@@ -1,13 +1,21 @@
+# src/model_evaluation.py
 import json
 import logging
+import os
+from pathlib import Path
 from sentence_transformers import util
 import numpy as np
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from dvclive import Live
 
+# Setup directories
+BASE_DIR = Path(__file__).resolve().parent.parent
+for folder in ["models/faiss_index", "logs", "reports"]:
+    (BASE_DIR / folder).mkdir(parents=True, exist_ok=True)
+
 # Set up logging
-logging.basicConfig(filename='logs/model_evaluation.log', level=logging.INFO)
+logging.basicConfig(filename=str(BASE_DIR / "logs" / "model_evaluation.log"), level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def calculate_hit_rate(retriever, query, expected_docs, k=1):
@@ -23,7 +31,7 @@ def calculate_hit_rate(retriever, query, expected_docs, k=1):
         logger.error(f"Error in calculate_hit_rate: {str(e)}")
         return 0.0
 
-def evaluate_rag_response(response, embeddings):
+def evaluate_rag_response(response, embeddings, retriever):
     scores = {}
     try:
         answer_embed = embeddings.embed_query(response.get("answer", ""))
@@ -31,7 +39,7 @@ def evaluate_rag_response(response, embeddings):
         similarities = [util.cos_sim(answer_embed, ctx_embed).item() for ctx_embed in context_embeds if ctx_embed is not None]
         scores["faithfulness"] = float(np.mean(similarities)) if similarities else 0.0
         scores["hit_rate"] = calculate_hit_rate(
-            retriever=None,
+            retriever=retriever,
             query=response.get("input", ""),
             expected_docs=[doc.page_content for doc in response.get("context", []) if hasattr(doc, 'page_content')],
             k=1
@@ -48,7 +56,7 @@ def evaluate_model():
         model_kwargs={"device": "cpu"},
         encode_kwargs={"normalize_embeddings": True}
     )
-    vector_store = FAISS.load_local("../models/faiss_index", embeddings, allow_dangerous_deserialization=True)
+    vector_store = FAISS.load_local(str(BASE_DIR / "models" / "faiss_index"), embeddings, allow_dangerous_deserialization=True)
     retriever = vector_store.as_retriever(search_kwargs={"k": 4})
 
     # Dummy evaluation for DVC tracking
@@ -58,11 +66,12 @@ def evaluate_model():
         "context": [vector_store.similarity_search("What is the diagnostic path?")[0]]
     }
     
-    scores = evaluate_rag_response(test_response, embeddings)
+    scores = evaluate_rag_response(test_response, embeddings, retriever)
     
     # Save metrics
-    os.makedirs("../reports", exist_ok=True)
-    with open("../reports/metrics.json", "w") as f:
+    reports_path = BASE_DIR / "reports" / "metrics.json"
+    reports_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(reports_path, "w") as f:
         json.dump(scores, f, indent=4)
     
     # Log to DVCLive
