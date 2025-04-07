@@ -1,0 +1,13 @@
+data:
+  chunk_size: 400
+  chunk_overlap: 50
+
+model:
+  embedding_model: "distilbert-base-uncased"
+  device: "cpu"
+  normalize_embeddings: true
+  retriever_k: 4
+
+llm:
+  model_name: "llama-3.3-70b-versatile"
+  temperature: 0.0

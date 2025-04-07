@@ -1,0 +1,14 @@
+streamlit
+langchain
+langchain-groq
+langchain-community
+langchain-huggingface
+huggingface-hub
+sentence-transformers
+faiss-cpu
+numpy
+python-dotenv
+tqdm
+transformers
+streamlit-lottie
+dvc
