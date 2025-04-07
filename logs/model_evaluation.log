@@ -252,3 +252,16 @@ INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransform
 WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
 INFO:__main__:LLM ready in 2.89s
 INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 7.40s
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+INFO:__main__:FAISS index loaded
+INFO:__main__:Initializing LLM and embeddings
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: distilbert-base-uncased
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name distilbert-base-uncased. Creating a new one with mean pooling.
+INFO:__main__:LLM ready in 3.36s
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
